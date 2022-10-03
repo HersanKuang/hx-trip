@@ -1,11 +1,24 @@
 <script lang="ts" setup>
-
+import HomeNavBar from "./cpns/home-nav-bar.vue"
+import HomeSearchBox from "./cpns/home-search-box.vue"
 </script>
 
 <template>
   <div class="home">
-    <h2>home</h2>
+    <home-nav-bar />
+    <div class="banner">
+      <img src="@/assets/img/home/banner.webp" alt="">
+    </div>
+    <home-search-box />
   </div>
 </template>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.home {
+  .banner {
+    img {
+      width: 100%;
+    }
+  }
+}
+</style>
