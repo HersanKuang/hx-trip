@@ -6,10 +6,10 @@ import { useRouter } from "vue-router"
 
 const currentIndex = ref(0)
 const router = useRouter()
-interface Iitem {
+interface Item {
   path: string
 }
-const itemClick = (item: Iitem, index: number) => {
+const itemClick = (item: Item, index: number) => {
   currentIndex.value = index
   router.push(item.path)
 }

@@ -9,7 +9,11 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Tabbar: typeof import('./src/components/tabbar/tabbar.vue')['default']
+    Tabbar: typeof import('./src/components/tab-bar/tab-bar.vue')['default']
+    TabBar: typeof import('./src/components/tab-bar/tab-bar.vue')['default']
     VanButton: typeof import('vant/es')['Button']
+    VanSearch: typeof import('vant/es')['Search']
+    VanTab: typeof import('vant/es')['Tab']
+    VanTabs: typeof import('vant/es')['Tabs']
   }
 }
