@@ -11,7 +11,6 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
-<<<<<<< HEAD
     "skipLibCheck": true,
     "baseUrl": ".",  // 配置baseUrl和paths可以让省略扩展名生效
     "paths": {
@@ -19,10 +18,5 @@
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/assets/data/tabbar.ts"],
-=======
     "skipLibCheck": true
-  },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
->>>>>>> 2920fb3a9ab92cb7bb71bfc5dd31bc93e4c2befc
-  "references": [{ "path": "./tsconfig.node.json" }]
 }
