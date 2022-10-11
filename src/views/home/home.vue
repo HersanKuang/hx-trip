@@ -15,6 +15,7 @@ import HomeSearchBox from "./cpns/home-search-box.vue"
 
 <style lang="less" scoped>
 .home {
+  padding-bottom: 50px;
   .banner {
     img {
       width: 100%;
