@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import { createRouter, createWebHistory } from "vue-router"
+=======
+import { createRouter, createWebHistory } from 'vue-router'
+>>>>>>> 2920fb3a9ab92cb7bb71bfc5dd31bc93e4c2befc
 
 const router = createRouter({
   history: createWebHistory(),
   // 映射关系：path -> components
   routes: [
+<<<<<<< HEAD
     {
       path: "/",
       redirect: "/home"
@@ -31,6 +36,9 @@ const router = createRouter({
         hideTabBar: true
       }
     }
+=======
+
+>>>>>>> 2920fb3a9ab92cb7bb71bfc5dd31bc93e4c2befc
   ]
 })
 

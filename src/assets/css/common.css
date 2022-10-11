@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   --primary-color: #ff9854;
   /* 全局修改vant ui的样式 */
@@ -10,4 +11,9 @@ body {
   font-size: 14px;
   font-family: PingFangSC-Regular, Helvetica Neue, sans-serif;;
   background-color: #f7f8fb;
+=======
+body {
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+>>>>>>> 2920fb3a9ab92cb7bb71bfc5dd31bc93e4c2befc
 }
