@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import {computed, ref} from "vue"
-import {useRouter} from "vue-router"
-import {storeToRefs} from "pinia"
+import { computed, ref } from "vue"
+import { useRouter} from "vue-router"
+import { storeToRefs } from "pinia"
 import useCityStore from "@/stores/modules/city"
 import CityGroup from "@/views/city/cpns/city-group.vue";
 
