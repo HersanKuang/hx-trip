@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed } from "vue"
+import { computed } from 'vue'
 
 interface Props {
   groupData: {
@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 const indexList = computed(() => {
   const list = props.groupData.cities!.map((item) => item.group)
-  list.unshift("#")
+  list.unshift('#')
   return list
 })
 </script>
@@ -21,16 +21,16 @@ const indexList = computed(() => {
 <template>
   <div class="city-group">
     <van-index-bar :index-list="indexList" :sticky="false">
-      <van-index-anchor index="热门"/>
+      <van-index-anchor index="热门" />
       <div class="list">
         <template v-for="(city, index) in groupData.hotCities" :key="index">
           <div class="city">{{ city.cityName }}</div>
         </template>
       </div>
       <template v-for="(group, index) in groupData.cities" :key="index">
-        <van-index-anchor :index="group.group"/>
+        <van-index-anchor :index="group.group" />
         <template v-for="(city, index) in group.cities" :key="index">
-          <van-cell :title="city.cityName"/>
+          <van-cell :title="city.cityName" />
         </template>
       </template>
     </van-index-bar>

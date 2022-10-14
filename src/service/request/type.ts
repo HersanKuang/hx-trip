@@ -1,4 +1,4 @@
-import type { AxiosRequestConfig, AxiosResponse } from "axios"
+import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 export interface HXRequestInterceptors<T = AxiosResponse> {
   requestInterceptor?: (config: AxiosRequestConfig) => AxiosRequestConfig

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { ref } from "vue"
-import tabbarData from "@/assets/data/tabbar"
-import { getAssetURL } from "@/utils"
-import { useRouter } from "vue-router"
+import { ref } from 'vue'
+import tabbarData from '@/assets/data/tabbar'
+import { getAssetURL } from '@/utils'
+import { useRouter } from 'vue-router'
 
 const currentIndex = ref(0)
 const router = useRouter()
@@ -13,7 +13,6 @@ const itemClick = (item: Item, index: number) => {
   currentIndex.value = index
   router.push(item.path)
 }
-
 </script>
 
 <template>
@@ -24,7 +23,14 @@ const itemClick = (item: Item, index: number) => {
         :class="{ active: currentIndex === index }"
         @click="itemClick(item, index)"
       >
-        <img :src="currentIndex === index ? getAssetURL(item.imageActive) : getAssetURL(item.image)" alt="">
+        <img
+          :src="
+            currentIndex === index
+              ? getAssetURL(item.imageActive)
+              : getAssetURL(item.image)
+          "
+          alt=""
+        />
         <span class="text">{{ item.title }}</span>
       </div>
     </template>
@@ -32,34 +38,34 @@ const itemClick = (item: Item, index: number) => {
 </template>
 
 <style lang="less" scoped>
-  .tabbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: flex;
+  border-top: 1px solid #f3f3f3;
+
+  .tabbar-item {
+    flex: 1;
     display: flex;
-    border-top: 1px solid #f3f3f3;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    .tabbar-item {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    &.active {
+      color: var(--primary-color);
+    }
 
-      &.active {
-        color: var(--primary-color);
-      }
+    .text {
+      font-size: 12px;
+      margin-top: 1px;
+    }
 
-      .text {
-        font-size: 12px;
-        margin-top: 1px;
-      }
-
-      img {
-        width: 36px;
-      }
+    img {
+      width: 36px;
     }
   }
+}
 </style>

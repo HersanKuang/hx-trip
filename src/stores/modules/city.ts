@@ -1,7 +1,7 @@
-import { getCityAll } from "@/service"
-import { defineStore } from "pinia"
+import { getCityAll } from '@/service'
+import { defineStore } from 'pinia'
 
-const useCityStore = defineStore("city", {
+const useCityStore = defineStore('city', {
   state: () => ({
     allCities: {}
   }),

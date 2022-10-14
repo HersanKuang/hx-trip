@@ -1,3 +1,3 @@
-import hxRequest from "../request/index"
+import hxRequest from '../request/index'
 
-export const getCityAll = () => hxRequest.get({ url: "city/all" })
+export const getCityAll = () => hxRequest.get({ url: 'city/all' })
