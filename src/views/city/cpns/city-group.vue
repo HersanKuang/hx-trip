@@ -2,7 +2,10 @@
 import { computed } from "vue"
 
 interface Props {
-  groupData: { cities?: any[] }
+  groupData: {
+    cities?: any[]
+    hotCities?: any[]
+  }
 }
 
 const props = withDefaults(defineProps<Props>(), {
