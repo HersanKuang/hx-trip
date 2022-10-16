@@ -17,7 +17,7 @@ const itemClick = (item: Item, index: number) => {
 
 <template>
   <div class="tabbar">
-    <template v-for="(item, index) in tabbarData">
+    <template v-for="(item, index) in tabbarData" :key="item">
       <div
         class="tabbar-item"
         :class="{ active: currentIndex === index }"
