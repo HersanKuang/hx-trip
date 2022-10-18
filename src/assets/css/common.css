@@ -1,5 +1,6 @@
 :root {
   --primary-color: #ff9854;
+  --line-color: #f8f9f9;
   /* 全局修改vant ui的样式 */
   --van-search-left-icon-color: var(--primary-color) !important;
   --van-search-padding: 10px !important;
@@ -10,4 +11,8 @@ body {
   font-size: 14px;
   font-family: PingFangSC-Regular, Helvetica Neue, sans-serif;;
   background-color: #f7f8fb;
+}
+
+.bottom-gray-line {
+  border-bottom: 1px solid var(--line-color);
 }
