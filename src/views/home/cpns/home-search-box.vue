@@ -66,6 +66,17 @@ const onDateConfirm = (value: any[]) => {
 // 热门建议
 const homeStore = useHomeStore()
 const { hotSuggests } = storeToRefs(homeStore)
+// 开始搜索
+const searchBtnClick = () => {
+  router.push({
+    path: '/search',
+    query: {
+      startDate: startDate.value,
+      endDate: endDate.value,
+      currentCity: currentCity.value.cityName
+    }
+  })
+}
 </script>
 
 <template>
@@ -126,6 +137,10 @@ const { hotSuggests } = storeToRefs(homeStore)
         </div>
       </template>
     </div>
+    <!-- 搜索按钮 -->
+    <div class="section search-btn">
+      <div class="btn" @click="searchBtnClick">开始搜索</div>
+    </div>
   </div>
 </template>
 
@@ -182,7 +197,6 @@ const { hotSuggests } = storeToRefs(homeStore)
     .date {
       display: flex;
       flex-direction: column;
-      //align-items: center;
       .tip {
         font-size: 12px;
         color: #999;
@@ -206,6 +220,7 @@ const { hotSuggests } = storeToRefs(homeStore)
   }
   .hot-suggest {
     margin: 10px 0;
+    height: auto;
     .item {
       font-size: 12px;
       padding: 4px 8px;
@@ -213,6 +228,21 @@ const { hotSuggests } = storeToRefs(homeStore)
       border-radius: 14px;
       color: #3f4954;
       background-color: #f1f3f5;
+    }
+  }
+
+  .search-btn {
+    .btn {
+      width: 342px;
+      height: 38px;
+      max-height: 50px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 38px;
+      text-align: center;
+      border-radius: 20px;
+      color: #fff;
+      background-image: var(--theme-linear-gradient);
     }
   }
 }

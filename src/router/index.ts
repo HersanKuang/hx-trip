@@ -35,6 +35,14 @@ const router = createRouter({
       meta: {
         hideTabBar: true
       }
+    },
+    {
+      path: '/search',
+      component: () =>
+        import(/* webpackChunkName: 'city' */ '@/views/search/search.vue'),
+      meta: {
+        hideTabBar: true
+      }
     }
   ]
 })

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { getHomeHotSuggests } from '@/service'
+import { getHomeCategories, getHomeHotSuggests } from '@/service'
 
 interface State {
   hotSuggests: any[]
@@ -14,6 +14,10 @@ const useHomeStore = defineStore('home', {
     async fetchHotSuggestData() {
       const res = await getHomeHotSuggests()
       this.hotSuggests = res.data
+    },
+    async fetchCategoriesData() {
+      const res = await getHomeCategories()
+      this.categories = res.data
     }
   }
 })

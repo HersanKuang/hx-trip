@@ -23,7 +23,7 @@ module.exports = {
     indent: ['error', 2], // 两个空格的缩进
     // 指定行分隔符的格式为Unix内核的LF
     // 这可以避免我们在github/服务器等clone代码时分隔符格式不一样引起的错误
-    'linebreak-style': ['error', 'unix'],
+    'linebreak-style': ['off', 'unix'],
     // 使用单引号
     quotes: ['error', 'single'],
     // 末尾不使用分号

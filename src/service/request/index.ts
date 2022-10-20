@@ -1,7 +1,9 @@
 import axios, { AxiosInstance } from 'axios'
 import { BASE_URL, TIMEOUT } from './config'
 import type { HXRequestConfig } from './type'
+import { useLoadingStore } from '@/stores/modules/loading'
 
+const loadingStore = useLoadingStore()
 class HXRequest {
   instance: AxiosInstance
 
@@ -13,6 +15,7 @@ class HXRequest {
   }
 
   request<T = any>(config: HXRequestConfig<T>): Promise<T> {
+    loadingStore.changeLoading(true)
     return new Promise((resolve, reject) => {
       this.instance
         .request(config)
@@ -21,6 +24,9 @@ class HXRequest {
         })
         .catch((err: any) => {
           reject(err)
+        })
+        .finally(() => {
+          loadingStore.changeLoading(false)
         })
     })
   }
