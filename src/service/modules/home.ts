@@ -8,11 +8,11 @@ export function getHomeCategories() {
     url: '/home/categories'
   })
 }
-export function getHomeHouseList() {
+export function getHomeHouseList(currentPage: number) {
   return hxRequest.get({
     url: '/home/houselist',
     params: {
-      page: 1
+      page: currentPage
     }
   })
 }

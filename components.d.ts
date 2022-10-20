@@ -7,6 +7,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    HouseItemT3: typeof import('./src/components/house-item-t3/house-item-t3.vue')['default']
+    HouseItemT9: typeof import('./src/components/house-item-t9/house-item-t9.vue')['default']
     Loading: typeof import('./src/components/loading/loading.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
