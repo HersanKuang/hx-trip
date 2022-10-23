@@ -5,6 +5,7 @@ import HomeNavBar from './cpns/home-nav-bar.vue'
 import HomeSearchBox from './cpns/home-search-box.vue'
 import HomeCategories from './cpns/home-categories.vue'
 import HomeContent from '@/views/home/cpns/home-content.vue'
+import SearchBar from '@/components/search-bar/search-bar.vue'
 import useScroll from '@/hooks/useScroll'
 
 // 发送网络请求
@@ -18,7 +19,7 @@ const { scrollTop } = useScroll(() => {
 })
 // 搜索框显示的控制
 const isShowSearchBar = computed(() => {
-  return scrollTop.value >= 100
+  return scrollTop.value >= 350
 })
 </script>
 
@@ -31,7 +32,9 @@ const isShowSearchBar = computed(() => {
     <home-search-box />
     <div class="content">
       <home-categories />
-      <div class="search-bar" v-if="isShowSearchBar">我是搜索框的内容</div>
+      <div class="search" v-if="isShowSearchBar">
+        <search-bar />
+      </div>
       <home-content />
     </div>
   </div>
@@ -48,6 +51,16 @@ const isShowSearchBar = computed(() => {
   .content {
     margin-top: 20px;
     background-color: #f5f7f9;
+    .search {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 45px;
+      padding: 16px 16px 10px 16px;
+      background-color: white;
+      z-index: 100;
+    }
   }
 }
 </style>

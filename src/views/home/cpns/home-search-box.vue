@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import useCityStore from '@/stores/modules/city'
 import { storeToRefs } from 'pinia'
 import useHomeStore from '@/stores/modules/home'
 import { formatMonthDay, getDiffDays } from '@/utils/format_date'
+import { useMainStore } from '@/stores/modules/main'
 
 const router = useRouter()
 // 位置/城市
@@ -31,12 +32,12 @@ const cityStore = useCityStore()
 const { currentCity } = storeToRefs<any>(cityStore)
 
 // 日期范围的处理
-const nowDate = new Date()
-const newDate = new Date()
-newDate.setDate(nowDate.getDate() + 1)
-const startDate = ref(formatMonthDay(nowDate))
-const endDate = ref(formatMonthDay(newDate))
-const stayCount = ref(getDiffDays(nowDate, newDate))
+const mainStore = useMainStore()
+const { startDate: nowDate, endDate: newDate } = storeToRefs(mainStore)
+
+const startDate = computed(() => formatMonthDay(nowDate.value))
+const endDate = computed(() => formatMonthDay(newDate.value))
+const stayCount = ref(getDiffDays(nowDate.value, newDate.value))
 // 日历范围的选择
 const showCalendar = ref(false)
 interface Day {
@@ -57,8 +58,8 @@ const onDateConfirm = (value: any[]) => {
   // 1.设置日期
   const selectStartDate = value[0]
   const selectEndDate = value[1]
-  startDate.value = formatMonthDay(selectStartDate)
-  endDate.value = formatMonthDay(selectEndDate)
+  mainStore.startDate = selectStartDate
+  mainStore.endDate = selectEndDate
   stayCount.value = getDiffDays(selectStartDate, selectEndDate)
   // 2.隐藏日历
   showCalendar.value = false
