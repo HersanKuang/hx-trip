@@ -1,15 +1,25 @@
 <script lang="ts" setup>
+import { computed } from 'vue'
 import useHomeStore from '@/stores/modules/home'
 import HomeNavBar from './cpns/home-nav-bar.vue'
 import HomeSearchBox from './cpns/home-search-box.vue'
 import HomeCategories from './cpns/home-categories.vue'
 import HomeContent from '@/views/home/cpns/home-content.vue'
+import useScroll from '@/hooks/useScroll'
 
 // 发送网络请求
 const homeStore = useHomeStore()
 homeStore.fetchHotSuggestData()
 homeStore.fetchCategoriesData()
 homeStore.fetchHouseListData()
+// 监听window窗口的滚动
+const { scrollTop } = useScroll(() => {
+  homeStore.fetchHouseListData()
+})
+// 搜索框显示的控制
+const isShowSearchBar = computed(() => {
+  return scrollTop.value >= 100
+})
 </script>
 
 <template>
@@ -21,6 +31,7 @@ homeStore.fetchHouseListData()
     <home-search-box />
     <div class="content">
       <home-categories />
+      <div class="search-bar" v-if="isShowSearchBar">我是搜索框的内容</div>
       <home-content />
     </div>
   </div>

@@ -46,6 +46,7 @@ const itemClick = (item: Item, index: number) => {
   height: 50px;
   display: flex;
   border-top: 1px solid #f3f3f3;
+  background-color: #fff;
 
   .tabbar-item {
     flex: 1;

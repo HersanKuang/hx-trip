@@ -21,7 +21,7 @@ const { categories } = storeToRefs(homeStore)
 .categories {
   display: flex;
   overflow-x: auto;
-  height: 50px;
+  height: 54px;
   padding: 0 10px;
   background-color: #fff;
   &::-webkit-scrollbar {
