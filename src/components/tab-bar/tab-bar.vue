@@ -1,11 +1,22 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import tabbarData from '@/assets/data/tabbar'
 import { getAssetURL } from '@/utils'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const currentIndex = ref(0)
 const router = useRouter()
+const route = useRoute()
+/**
+ * 通过url字段修改tabbar
+ * 监听路由改变时，找到对应的索引，设置currentIndex
+ */
+watch(route, (newRoute) => {
+  const index = tabbarData.findIndex((item) => item.path === newRoute.path)
+  // 防止city赋值给currentIndex
+  if (index === -1) return
+  currentIndex.value = index
+})
 interface Item {
   path: string
 }
