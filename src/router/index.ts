@@ -10,36 +10,38 @@ const router = createRouter({
     },
     {
       path: '/home',
-      component: () =>
-        import(/* webpackChunkName: 'home' */ '@/views/home/home.vue')
+      component: () => import('@/views/home/home.vue')
     },
     {
       path: '/order',
-      component: () =>
-        import(/* webpackChunkName: 'order' */ '@/views/order/order.vue')
+      component: () => import('@/views/order/order.vue')
     },
     {
       path: '/favor',
-      component: () =>
-        import(/* webpackChunkName: 'favor' */ '@/views/favor/favor.vue')
+      component: () => import('@/views/favor/favor.vue')
     },
     {
       path: '/message',
-      component: () =>
-        import(/* webpackChunkName: 'message' */ '@/views/message/message.vue')
+      component: () => import('@/views/message/message.vue')
     },
     {
       path: '/city',
-      component: () =>
-        import(/* webpackChunkName: 'city' */ '@/views/city/city.vue'),
+      component: () => import('@/views/city/city.vue'),
       meta: {
         hideTabBar: true
       }
     },
     {
       path: '/search',
+      component: () => import('@/views/search/search.vue'),
+      meta: {
+        hideTabBar: true
+      }
+    },
+    {
+      path: '/detail/:id',
       component: () =>
-        import(/* webpackChunkName: 'city' */ '@/views/search/search.vue'),
+        import(/* webpackChunkName: 'city' */ '@/views/detail/detail.vue'),
       meta: {
         hideTabBar: true
       }
