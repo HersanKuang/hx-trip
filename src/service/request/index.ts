@@ -12,10 +12,30 @@ class HXRequest {
       baseURL,
       timeout
     })
+    // 请求的拦截器
+    this.instance.interceptors.request.use(
+      (config) => {
+        loadingStore.changeLoading(true)
+        return config
+      },
+      (err) => {
+        return err
+      }
+    )
+    // 响应的拦截器
+    this.instance.interceptors.response.use(
+      (res) => {
+        loadingStore.changeLoading(false)
+        return res
+      },
+      (err) => {
+        loadingStore.changeLoading(false)
+        return err
+      }
+    )
   }
 
   request<T = any>(config: HXRequestConfig<T>): Promise<T> {
-    loadingStore.changeLoading(true)
     return new Promise((resolve, reject) => {
       this.instance
         .request(config)
@@ -24,9 +44,6 @@ class HXRequest {
         })
         .catch((err: any) => {
           reject(err)
-        })
-        .finally(() => {
-          loadingStore.changeLoading(false)
         })
     })
   }
