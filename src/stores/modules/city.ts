@@ -1,12 +1,12 @@
 import { getCityAll } from '@/service'
 import { defineStore } from 'pinia'
 
-interface ICityName {
+interface CityName {
   cityName?: string
 }
 interface State {
   allCities: object | null
-  currentCity: ICityName
+  currentCity: CityName
 }
 
 const useCityStore = defineStore('city', {
