@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router'
 import useDetailStore from '@/stores/modules/detail'
-import Swiper from './cpns/swiper.vue'
+import DetailSwiper from './cpns/detail-swiper.vue'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
@@ -28,7 +28,7 @@ const mainPart = computed(() => houseDetail.value.mainPart)
       @click-left="onClickLeft"
     />
     <div class="main" v-if="mainPart">
-      <swiper :swiper-data="mainPart.topModule.housePicture.housePics" />
+      <detail-swiper :swiper-data="mainPart.topModule.housePicture.housePics" />
     </div>
   </div>
 </template>
