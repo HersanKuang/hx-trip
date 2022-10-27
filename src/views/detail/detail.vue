@@ -1,9 +1,9 @@
 <script lang="ts" setup>
+import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import useDetailStore from '@/stores/modules/detail'
 import DetailSwiper from './cpns/detail-swiper.vue'
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -28,7 +28,7 @@ const mainPart = computed(() => houseDetail.value.mainPart)
       @click-left="onClickLeft"
     />
     <div class="main" v-if="mainPart">
-      <detail-swiper :swiper-data="mainPart.topModule.housePicture.housePics" />
+      <detail-swiper :swipe-data="mainPart.topModule.housePicture.housePics" />
     </div>
   </div>
 </template>
