@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 interface Props {
   title: string
-  moreText: string
+  moreText?: string
 }
 withDefaults(defineProps<Props>(), {
   title: '默认标题',
