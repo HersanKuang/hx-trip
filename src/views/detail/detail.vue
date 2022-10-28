@@ -2,7 +2,8 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import useDetailStore from '@/stores/modules/detail'
-import DetailSwiper from './cpns/detail-swiper.vue'
+import DetailSwiper from './cpns/detail_01-swiper.vue'
+import DetailInfos from './cpns/detail_02-infos.vue'
 import { storeToRefs } from 'pinia'
 
 const route = useRoute()
@@ -29,6 +30,7 @@ const mainPart = computed(() => houseDetail.value.mainPart)
     />
     <div class="main" v-if="mainPart">
       <detail-swiper :swipe-data="mainPart.topModule.housePicture.housePics" />
+      <detail-infos :top-infos="mainPart.topModule" />
     </div>
   </div>
 </template>
