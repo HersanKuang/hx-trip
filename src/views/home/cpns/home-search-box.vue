@@ -233,6 +233,7 @@ const searchBtnClick = () => {
   }
 
   .search-btn {
+    justify-content: center;
     .btn {
       width: 342px;
       height: 38px;

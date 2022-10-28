@@ -6,6 +6,9 @@ import useDetailStore from '@/stores/modules/detail'
 import DetailSwiper from './cpns/detail_01-swiper.vue'
 import DetailInfos from './cpns/detail_02-infos.vue'
 import DetailFacility from './cpns/detail_03-facility.vue'
+import DetailLandlord from './cpns/detail_04-landlord.vue'
+import DetailComment from './cpns/detail_05-comment.vue'
+import DetailNotice from './cpns/detail_06-notice.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -34,6 +37,11 @@ const mainPart = computed(() => houseDetail.value.mainPart)
       <detail-infos :top-infos="mainPart.topModule" />
       <detail-facility
         :house-facility="mainPart.dynamicModule.facilityModule.houseFacility"
+      />
+      <detail-landlord :landlord="mainPart.dynamicModule.landlordModule" />
+      <detail-comment :comment="mainPart.dynamicModule.commentModule" />
+      <detail-notice
+        :order-rules="mainPart.dynamicModule.rulesModule.orderRules"
       />
     </div>
   </div>
