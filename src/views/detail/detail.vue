@@ -1,10 +1,11 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
 import useDetailStore from '@/stores/modules/detail'
 import DetailSwiper from './cpns/detail_01-swiper.vue'
 import DetailInfos from './cpns/detail_02-infos.vue'
-import { storeToRefs } from 'pinia'
+import DetailFacility from './cpns/detail_03-facility.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -31,6 +32,9 @@ const mainPart = computed(() => houseDetail.value.mainPart)
     <div class="main" v-if="mainPart">
       <detail-swiper :swipe-data="mainPart.topModule.housePicture.housePics" />
       <detail-infos :top-infos="mainPart.topModule" />
+      <detail-facility
+        :house-facility="mainPart.dynamicModule.facilityModule.houseFacility"
+      />
     </div>
   </div>
 </template>
