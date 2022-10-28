@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@amap/amap-jsapi-loader': ^1.0.1
   '@babel/core': ^7.19.3
   '@babel/eslint-parser': ^7.19.1
   '@typescript-eslint/eslint-plugin': ^5.40.0
@@ -27,6 +28,7 @@ specifiers:
   vue-tsc: ^0.40.4
 
 dependencies:
+  '@amap/amap-jsapi-loader': 1.0.1
   axios: 1.1.2
   dayjs: 1.11.5
   normalize.css: 8.0.1
@@ -55,6 +57,10 @@ devDependencies:
   vue-tsc: 0.40.13_typescript@4.8.4
 
 packages:
+
+  /@amap/amap-jsapi-loader/1.0.1:
+    resolution: {integrity: sha512-nPyLKt7Ow/ThHLkSvn2etQlUzqxmTVgK7bIgwdBRTg2HK5668oN7xVxkaiRe3YZEzGzfV2XgH5Jmu2T73ljejw==}
+    dev: false
 
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
