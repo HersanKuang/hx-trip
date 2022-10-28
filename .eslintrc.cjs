@@ -29,6 +29,7 @@ module.exports = {
     // 末尾不使用分号
     semi: ['error', 'never'],
     'vue/multi-word-component-names': 'off', // vue组件需要使用多个单词的名称
+    'vue/no-mutating-props': 'off',
     '@typescript-eslint/no-explicit-any': 'off', // ts: 不允许使用any
     '@typescript-eslint/no-non-null-assertion': 'off' // ts: 不允许使用非空断言
   }
