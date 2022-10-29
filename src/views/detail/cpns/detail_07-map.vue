@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, ref, shallowRef } from 'vue'
+import { onMounted, onUnmounted, ref, shallowRef } from 'vue'
 import DetailSection from '@/components/detail-section/detail-section.vue'
 import AMapLoader from '@amap/amap-jsapi-loader'
 
@@ -24,7 +24,7 @@ const initMap = () => {
       map.value = new AMap.Map(mapRef.value, {
         //设置地图容器id
         viewMode: '3D', //是否为3D地图模式
-        zoom: 15, //初始化地图级别
+        zoom: 13, //初始化地图级别
         center: [props.position.longitude, props.position.latitude] //初始化地图中心点位置，不传为当前位置
       })
       // 创建 AMap.Icon 实例：
@@ -50,6 +50,10 @@ const initMap = () => {
 }
 onMounted(() => {
   initMap()
+})
+onUnmounted(() => {
+  // 销毁地图
+  map.value.destroy()
 })
 </script>
 

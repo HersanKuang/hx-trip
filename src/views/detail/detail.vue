@@ -27,14 +27,14 @@ const mainPart = computed(() => houseDetail.value.mainPart)
 </script>
 
 <template>
-  <div class="detail">
+  <div class="detail" v-if="mainPart?.topModule?.housePicture?.housePics">
     <van-nav-bar
       title="房屋详情"
       left-text="旅途"
       left-arrow
       @click-left="onClickLeft"
     />
-    <div class="main" v-if="mainPart">
+    <div class="main">
       <detail-swiper :swipe-data="mainPart.topModule.housePicture.housePics" />
       <detail-infos :top-infos="mainPart.topModule" />
       <detail-facility
@@ -48,7 +48,7 @@ const mainPart = computed(() => houseDetail.value.mainPart)
       <detail-map :position="mainPart.dynamicModule.positionModule" />
       <detail-intro :price-intro="mainPart.introductionModule" />
     </div>
-    <div class="footer">
+    <div class="footer" v-if="mainPart">
       <img src="@/assets/img/detail/icon_ensure.png" alt="" />
       <div class="text">弘源旅途, 永无止境!</div>
     </div>

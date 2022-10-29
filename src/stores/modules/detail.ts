@@ -11,7 +11,7 @@ const useDetailStore = defineStore('detail', {
   actions: {
     async fetchHouseDetailData<T>(houseId: T | T[]) {
       const res = await getDetailInfos(houseId)
-      this.houseDetail = res.data
+      if (res.data) this.houseDetail = res.data
     }
   }
 })
