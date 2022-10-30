@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, onActivated, ref } from 'vue'
 import useHomeStore from '@/stores/modules/home'
 import HomeNavBar from './cpns/home-nav-bar.vue'
 import HomeSearchBox from './cpns/home-search-box.vue'
@@ -13,16 +13,26 @@ const homeStore = useHomeStore()
 homeStore.fetchHotSuggestData()
 homeStore.fetchCategoriesData()
 homeStore.fetchHouseListData()
+
 // 监听window窗口的滚动
+const homeRef = ref()
 const { scrollTop } = useScroll(() => {
   homeStore.fetchHouseListData()
+}, homeRef)
+
+// 跳转回home时，保存原来home页面滚动的位置
+onActivated(() => {
+  homeRef.value?.scrollTo({
+    top: scrollTop.value
+  })
 })
+
 // 搜索框显示的控制
 const isShowSearchBar = computed(() => scrollTop.value >= 350)
 </script>
 
 <template>
-  <div class="home">
+  <div class="home" ref="homeRef">
     <home-nav-bar />
     <div class="banner">
       <img src="@/assets/img/home/banner.webp" alt="" />
@@ -40,6 +50,9 @@ const isShowSearchBar = computed(() => scrollTop.value >= 350)
 
 <style lang="less" scoped>
 .home {
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
   padding-bottom: 50px;
   .banner {
     img {

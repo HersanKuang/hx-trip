@@ -58,7 +58,7 @@ const tabClick = (name: { name: number }) => {
   isClick = true
   currentDistance = distance
 
-  document.documentElement.scrollTo({
+  detailRef.value.scrollTo({
     top: distance,
     behavior: 'smooth'
   })
@@ -151,6 +151,7 @@ watch(scrollTop, (newValue) => {
 .detail {
   width: 100%;
   height: 100vh;
+  overflow-y: auto;
   .tabs {
     position: fixed;
     top: 0;

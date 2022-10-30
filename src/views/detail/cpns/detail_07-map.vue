@@ -53,7 +53,8 @@ onMounted(() => {
 })
 onUnmounted(() => {
   // 销毁地图
-  map.value.destroy()
+  map.value?.destroy()
+  map.value = null
 })
 </script>
 
