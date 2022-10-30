@@ -69,6 +69,7 @@ onUnmounted(() => {
 .map {
   .amap {
     height: 250px;
+    border-radius: 4px;
   }
 }
 </style>

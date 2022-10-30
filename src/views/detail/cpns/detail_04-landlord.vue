@@ -80,6 +80,7 @@ withDefaults(defineProps<Props>(), {
           img {
             width: 54px;
             height: 54px;
+            margin: 8px 8px 0 0;
           }
         }
 
@@ -105,7 +106,7 @@ withDefaults(defineProps<Props>(), {
           height: 24px;
           line-height: 24px;
           border-radius: 5px;
-          padding: 0 12px;
+          padding: 0 10px;
           font-size: 12px;
           color: #fff;
           background-image: linear-gradient(90deg, #fa8c1d, #fcaf3f);

@@ -1,16 +1,23 @@
 import { onMounted, onUnmounted, ref } from 'vue'
-import { hxthrorrle } from '@/utils'
+import { hxthrottle } from '@/utils'
 
-export default function (reachBottomCB: () => void) {
+export default function useScroll(reachBottomCB?: () => void, elRef?: any) {
+  let el: any = window
   const clientHeight = ref(0)
   const scrollTop = ref(0)
   const scrollHeight = ref(0)
   // 防抖
-  const scrollListenerHandler = hxthrorrle(
+  const scrollListenerHandler = hxthrottle(
     () => {
-      clientHeight.value = document.documentElement.clientHeight
-      scrollTop.value = document.documentElement.scrollTop
-      scrollHeight.value = document.documentElement.scrollHeight
+      if (el === window) {
+        clientHeight.value = document.documentElement.clientHeight
+        scrollTop.value = document.documentElement.scrollTop
+        scrollHeight.value = document.documentElement.scrollHeight
+      } else {
+        clientHeight.value = el.clientHeight
+        scrollTop.value = el.scrollTop
+        scrollHeight.value = el.scrollHeight
+      }
       if (
         clientHeight.value + Math.ceil(scrollTop.value) >=
         scrollHeight.value
@@ -23,10 +30,11 @@ export default function (reachBottomCB: () => void) {
   )
 
   onMounted(() => {
-    window.addEventListener('scroll', scrollListenerHandler)
+    if (elRef && elRef.value) el = elRef.value
+    el.addEventListener('scroll', scrollListenerHandler)
   })
   onUnmounted(() => {
-    window.removeEventListener('scroll', scrollListenerHandler)
+    el.removeEventListener('scroll', scrollListenerHandler)
   })
   return { scrollTop, scrollHeight, clientHeight }
 }

@@ -9,6 +9,7 @@
   --van-search-padding: 10px !important;
   --van-tabs-line-height: 50px !important;
   --van-tabs-bottom-bar-color: var(--primary-color) !important;
+  --van-tab-active-text-color: var(--primary-color) !important;
 }
 
 body {

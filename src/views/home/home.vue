@@ -18,9 +18,7 @@ const { scrollTop } = useScroll(() => {
   homeStore.fetchHouseListData()
 })
 // 搜索框显示的控制
-const isShowSearchBar = computed(() => {
-  return scrollTop.value >= 350
-})
+const isShowSearchBar = computed(() => scrollTop.value >= 350)
 </script>
 
 <template>

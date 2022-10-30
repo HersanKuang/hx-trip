@@ -1,4 +1,4 @@
 import { getAssetURL } from './load_assets'
-import { hxthrorrle } from './hx_throttle'
+import { hxthrottle } from './hx_throttle'
 
-export { getAssetURL, hxthrorrle }
+export { getAssetURL, hxthrottle }

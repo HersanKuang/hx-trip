@@ -1,4 +1,4 @@
-export function hxthrorrle(
+export function hxthrottle(
   callbackFn: any,
   interval: number,
   { leading = true, trailing = false } = {}
