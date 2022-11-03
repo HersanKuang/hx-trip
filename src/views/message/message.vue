@@ -1,3 +1,12 @@
+<script lang="ts" setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const onClickLeft = () => {
+  router.back()
+}
+</script>
+
 <template>
   <div class="message">
     <van-nav-bar
@@ -12,15 +21,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-const onClickLeft = () => {
-  router.back()
-}
-</script>
 
 <style lang="less" scoped>
 .content {
