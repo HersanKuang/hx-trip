@@ -1,6 +1,6 @@
 # hx-trip
 
-## Project setup and build
+## Project setup
 ```
 pnpm install
 ```
